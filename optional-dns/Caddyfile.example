@@ -1,0 +1,5 @@
+# Add to your existing Caddyfile; do not overwrite other sites.
+dns-observer.example.com {
+    reverse_proxy 127.0.0.1:8098
+    # Do not enable access logs: result URLs contain short-lived observation tokens.
+}

@@ -1,34 +1,8 @@
-<!doctype html>
-<html lang="en-CA">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="{{DESCRIPTION}}">
-  <title>{{TITLE}} · CoolCode</title>
-  <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./app.mjs"></script>
-  {{VISIT_COUNTER}}
-</head>
-<body data-tool-id="{{TOOL_ID}}">
-  <a class="skip" href="#main">Skip to content</a>
-  <header><a href="https://coolcode.ca/">← CoolCode.ca</a><a href="{{SOURCE_URL}}">Source &amp; instructions ↗</a></header>
-  <main id="main">
-    <p class="eyebrow">Browser tool starter</p>
-    <h1>{{TITLE}}</h1>
-    <p class="intro">{{DESCRIPTION}}</p>
-    <section aria-labelledby="example-title">
-      <h2 id="example-title">Clean a list</h2>
-      <p>Trim spaces, skip blank lines and remove exact duplicates. Capitalization stays distinct.</p>
-      <div class="panels">
-        <div><label for="input">Your lines</label><textarea id="input" rows="10" maxlength="100000" spellcheck="false" placeholder="Paste one item per line"></textarea></div>
-        <div><label for="output">Cleaned lines</label><textarea id="output" rows="10" readonly spellcheck="false"></textarea></div>
-      </div>
-      <div class="actions"><button id="sample" type="button">Load example</button><button id="clear" type="button">Clear</button><button id="copy" type="button" hidden>Copy result</button></div>
-      <p id="status" role="status" aria-live="polite">Paste a list to begin.</p>
-      <noscript><p>This tool needs JavaScript to process your text. The source is available above.</p></noscript>
-    </section>
-    <aside aria-label="Privacy"><strong>Stays on your device.</strong> The browser processes your text in this tab. Reloading clears it.</aside>
-  </main>
-  <footer>Part of <a href="https://coolcode.ca/">the CoolCode collection</a>. {{ISSUE_LINK}}</footer>
-</body>
-</html>
+<!doctype html><html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{{DESCRIPTION}}"><meta name="referrer" content="no-referrer"><title>What information does my browser reveal? · CoolCode</title><link rel="stylesheet" href="./style.css"><script type="module" src="./app.mjs"></script>{{VISIT_COUNTER}}</head>
+<body data-tool-id="{{TOOL_ID}}"><a class="skip" href="#main">Skip to receipt</a><header><a href="https://coolcode.ca/">← CoolCode</a><a href="{{SOURCE_URL}}">Source &amp; instructions ↗</a></header><main id="main"><div class="hero"><div><p class="eyebrow">A RECEIPT FOR YOUR BROWSER</p><h1>{{TITLE}}</h1><p class="intro">What a website can see.<br>What changes when you change settings.</p><p>Inspect the values this browser exposes. Keep a baseline, try a different privacy setting or VPN, then compare. There is no invented uniqueness score.</p></div><div class="summary"><strong id="count">—</strong><span>visible fields</span><small id="captured"></small><span class="pill">Local by default</span></div></div>
+<div class="toolbar"><button id="capture">Capture again</button><button id="connection" class="secondary">Check public connection</button><button id="permissions" class="secondary">Read permission states</button></div><p id="status" role="status" aria-live="polite">Reading browser values…</p>
+<details class="notice"><summary>What leaves this browser?</summary><p>The local receipt and imported files are not uploaded. The public-connection button contacts CoolCode’s Cloudflare endpoint, which necessarily sees your IP. Optional DNS probing contacts the observer you enter. Ordinary CoolCode pageview statistics count only the tool ID; receipt fields and imports are not included. GPC and Do Not Track are respected by the site counter.</p><p>These are browser-reported values, not a complete fingerprint or proof of anonymity. Reduced values, blocked APIs and missing fields are normal. No canvas fingerprint, font sweep, WebRTC address gathering, device opening or location request is performed.</p></details>
+<section class="comparison"><div><p class="eyebrow">BEFORE / AFTER</p><h2>Compare with a baseline</h2><p id="baseline"></p><label class="check"><input type="checkbox" id="include-network"> Include IP/network and DNS fields when saving or exporting</label><div class="toolbar"><button id="save">Save current baseline</button><button id="forget" class="secondary">Forget baseline</button><button id="export" class="secondary">Export receipt</button><label class="file-button">Import baseline<input id="import" type="file" accept=".json,application/json"></label></div></div><ul id="changes" class="changes"></ul></section>
+<div id="receipt" class="cards"></div>
+<details class="notice"><summary>Optional: observe DNS resolver egress</summary><p>This needs your own small DNS observer. It reports recursive resolver addresses reaching the observer, not your full DNS chain or necessarily your ISP. Use a service you trust: it can see your browser’s public IP and resolver addresses. The supplied service expires results after two minutes.</p><label for="observer">Your observer’s HTTPS origin</label><input id="observer" type="url" placeholder="https://dns-observer.example.com" autocomplete="off"><div class="toolbar"><button id="dns">Run optional DNS probe</button><a href="https://github.com/jsdyer/browserreceipt/tree/main/optional-dns">VPS setup instructions ↗</a></div><p id="dns-status" role="status">Not configured or contacted. The rest of Browser Receipt works without this.</p><p>The probe starts a request to a unique hostname. That request can intentionally fail at HTTPS after DNS resolves; only the actual DNS observation is used.</p></details>
+<noscript><p>JavaScript is required to inspect browser values locally.</p></noscript></main><footer>Part of <a href="https://coolcode.ca/">CoolCode</a>. {{ISSUE_LINK}}</footer></body></html>
