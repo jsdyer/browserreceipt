@@ -65,9 +65,9 @@ class Authority:
             if end+4>len(packet): return None
             qtype,qclass = struct.unpack("!2H",packet[end:end+4]); question=packet[12:end+4]
         except (ValueError,UnicodeError): return None
-        def response(code=0, answer=b"", authority=b""):
-            return struct.pack("!6H",ident,0x8400|(flags&0x0100)|code,1,bool(answer),bool(authority),0)+question+answer+authority
-        if qclass!=1 or not (name==self.zone or name.endswith("."+self.zone)): return response(5)
+        def response(code=0, answer=b"", authority=b"", authoritative=True):
+            return struct.pack("!6H",ident,0x8000|(0x0400 if authoritative else 0)|(flags&0x0100)|code,1,bool(answer),bool(authority),0)+question+answer+authority
+        if qclass!=1 or not (name==self.zone or name.endswith("."+self.zone)): return response(5,authoritative=False)
         token=name[:-(len(self.zone)+1)] if name!=self.zone else ""
         if TOKEN.fullmatch(token): self.observations.observe(token,peer)
         def rr(owner,kind,data,ttl=0): return owner+struct.pack("!HHIH",kind,1,ttl,len(data))+data

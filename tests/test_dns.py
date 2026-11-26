@@ -20,6 +20,7 @@ class DNSObserverTests(unittest.TestCase):
         self.assertEqual(o.result(token),["192.0.2.8"])
         refused=a.answer(self.packet("outside.example"),"192.0.2.8")
         self.assertEqual(refused[3]&15,5)
+        self.assertFalse(struct.unpack("!H",refused[2:4])[0]&0x400)
         self.assertIsNone(a.answer(b"short","192.0.2.8"))
         self.assertIsNone(a.answer(struct.pack("!6H",7,0,1,0,0,0)+b"\xc0\x0c"+b"\x00\x01\x00\x01","192.0.2.8"))
     def test_dns_no_data_and_ns(self):
