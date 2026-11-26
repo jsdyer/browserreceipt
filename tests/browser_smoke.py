@@ -47,6 +47,12 @@ def main():
                 page.set_viewport_size({"width":390,"height":844})
                 assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
                 page.screenshot(path=str(screenshots/"mobile.png"),full_page=True)
+                start = len(requests)
+                page.goto(f"http://127.0.0.1:{server.server_port}/example-tool/what-is-my-ip/")
+                assert not any("workers.dev" in url for url in requests[start:])
+                page.locator("#check").click()
+                page.get_by_text("192.0.2.17",exact=True).wait_for()
+                assert "64501" in page.locator("#result").inner_text()
                 assert not errors,errors
                 browser.close()
             print("Browser checks passed: task flow, privacy, safe rendering and mobile layout")

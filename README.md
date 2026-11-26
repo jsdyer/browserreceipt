@@ -3,7 +3,7 @@
 [Open Browser Receipt](https://coolcode.ca/browserreceipt/) — inspect what this browser exposes, save a local baseline, and compare after changing a privacy setting, browser or VPN.
 
 <!-- coolcode:guide -->
-Capture browser-reported values, inspect differences against an explicitly saved or imported baseline, and export a JSON receipt. Public IP/ASN lookup and the optional DNS observer run only when requested. Network fields are excluded from saved/exported receipts unless selected. The standard CoolCode counter receives only the tool ID, never receipt contents.
+Open [What is my IP?](https://coolcode.ca/browserreceipt/what-is-my-ip/) for a one-button public IP and network check. Capture browser-reported values, inspect differences against an explicitly saved or imported baseline, and export a JSON receipt. Public IP/ASN lookup and the optional DNS observer run only when requested. Network fields are excluded from saved/exported receipts unless selected. The standard CoolCode counter receives only the tool ID, never receipt contents.
 <!-- /coolcode:guide -->
 
 ## What works immediately

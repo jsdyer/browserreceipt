@@ -1,7 +1,7 @@
 {
   "id": "browserreceipt",
-  "title": "Browser Receipt",
-  "description": "See what your browser reveals, compare local privacy snapshots, and check your public connection on demand.",
+  "title": "Browser Privacy Checker",
+  "description": "Inspect what your browser reveals, compare privacy snapshots and check your public IP and network on demand.",
   "category": "security",
   "tags": [
     "browser",
@@ -20,4 +20,3 @@
     "detail": "Browser-reported values stay local; optional connection and DNS checks run only when requested."
   }
 }
-
